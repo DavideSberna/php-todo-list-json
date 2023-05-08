@@ -22,8 +22,12 @@
                         <input type="text" name="task" id="task" v-model="newTask" @keyup.enter="addTask">
                         <button type="button" @click="addTask">Add</button>
                         <ul>
-                            <li v-for="(item, index) in todoList" :key="index">
-                                {{item.task}}
+                            <li v-for="(item, index) in todoList" :key="index" class="d-flex" :class="{'bg-primary' : item.complete, 'd-none' : item.delete}">
+                                <p>{{item.task}}</p>
+                                <div class="ps-4">
+                                    <span @click="item.complete = !item.complete" class="pe-2">complete</span>
+                                    <span @click="item.delete = !item.delete">delete</span>
+                                </div>
                             </li>
                         </ul>
                     </div>

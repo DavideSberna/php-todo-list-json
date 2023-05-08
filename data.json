@@ -1,1 +1,28 @@
-[{"task":"Pasta integrale","complete":true,"delete":false},{"task":"Riso basmati","complete":true,"delete":false},{"task":"Petto di pollo","complete":true,"delete":false},{"task":"Frutta secca","complete":true,"delete":false},{"task":"Marmellata","complete":true,"delete":false},{"task":"pane","complete":false,"delete":false}]
+[
+    {
+        "task": "Pasta integrale",
+        "complete": false,
+        "delete": false
+    },
+    {
+        "task": "Riso basmati",
+        "complete": false,
+        "delete": false
+    },
+    {
+        "task": "Petto di pollo",
+        "complete": false,
+        "delete": false
+    },
+    {
+        "task": "Frutta secca",
+        "complete": false,
+        "delete": false
+    },
+    {
+        "task": "Marmellata",
+        "complete": false,
+        "delete": false
+    }
+    
+]
