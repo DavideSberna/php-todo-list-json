@@ -19,14 +19,14 @@
                         <h3>Inserisci ciò che ti serve</h3>
                     </div>
                     <div>
-                        <input type="text" name="task" id="task" v-model="newTask" @keyup.enter="addTask">
+                        <input type="text" name="task" id="task" v-model="listTask.newTask" @keyup.enter="addTask">
                         <button type="button" @click="addTask">Add</button>
                         <ul>
-                            <li v-for="(item, index) in todoList" :key="index" class="d-flex" :class="{'bg-primary' : item.complete, 'd-none' : item.delete}">
+                            <li v-for="(item, index) in todoList" :key="index" class="d-flex" :class="{'bg-primary': item.complete}">
                                 <p>{{item.task}}</p>
                                 <div class="ps-4">
-                                    <span @click="item.complete = !item.complete" class="pe-2">complete</span>
-                                    <span @click="item.delete = !item.delete">delete</span>
+                                    <span @click="completeTask(index)" class="pe-2" name="complete">complete</span>
+                                    <span @click="deleteTask(index)">delete</span>
                                 </div>
                             </li>
                         </ul>

@@ -1,21 +1,19 @@
 const {createApp} = Vue;
 createApp({
     data(){
-        return{
-             
+        return{  
             todoList: [],
             apiUrl: 'server.php',
-            newTask: '',
-            complete: false,
-            delete: false,
-
-
+            listTask: {
+                newTask: '',
+                complete: false,
+                 
+            }
         }
     },
     methods:{
         allList(){
             axios.get(this.apiUrl).then((res) =>{
-                console.log(res.data);
                 this.todoList = res.data;
                 console.log('todoList',this.todoList)
             });
@@ -23,15 +21,30 @@ createApp({
         },
         addTask(){
             const data = {
-                newTask: this.newTask,
-                complete: this.complete,
-                delete: this.delete,
+                newTask: this.listTask.newTask,
             };
             axios.post(this.apiUrl, data, {headers:{'Content-Type': 'multipart/form-data'}}).then((res) => {
-                this.newTask = '';
+                this.listTask.newTask = '';
                 this.todoList = res.data;
             })
-        }
+        },
+        deleteTask(index){
+             const data = {
+                deleteItem: index  
+            };
+            axios.post(this.apiUrl, data, {headers:{'Content-Type': 'multipart/form-data'}}).then((res) => {
+                this.todoList = res.data;
+            }) 
+        },
+        completeTask(index){
+            const data = {
+                updateItem: index  
+            };
+            axios.post(this.apiUrl, data, {headers:{'Content-Type': 'multipart/form-data'}}).then((res) => {
+                this.todoList = res.data;
+            }) 
+        },
+         
 
     },
     mounted(){
